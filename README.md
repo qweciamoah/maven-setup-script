@@ -1,48 +1,64 @@
-# Maven Installation Script
+
+ # Maven Installation Script with Logging
 
 ## Introduction
-This script automates the installation process of Apache Maven, a powerful build automation tool primarily used for Java projects. With this script, you can quickly set up Maven on your system without manual intervention.
+This Bash script automates the installation process of Apache Maven on an Ubuntu system. It also updates the system packages, installs Java Development Kit (JDK), and configures environment variables. Additionally, it logs each step and any encountered errors to a specified log file for troubleshooting purposes.
+
+## Script Overview
+- **Script Name**: `maven_installation.sh`
+- **Author**: [qweciamoah]
+- **Version**: 1.0
 
 ## Prerequisites
-Before running the script, ensure you have the following prerequisites:
-- Java Development Kit (JDK) installed on your system
-- Internet connectivity to download Maven binaries
+Before running the script, ensure the following prerequisites are met:
+- Ubuntu operating system
+- Internet connectivity for package downloads
 
 ## Installation Steps
-Follow these steps to use the Maven installation script:
-
 1. **Download the Script**: Clone or download the script from the repository.
 
 2. **Make it Executable**: Ensure the script is executable by running the following command:
     ```bash
-    chmod +x install_maven.sh
+    chmod +x maven_installation.sh
     ```
 
 3. **Run the Script**: Execute the script with administrative privileges using the following command:
     ```bash
-    sudo ./install_maven.sh
+    sudo ./maven_installation.sh
     ```
 
-4. **Follow the Prompts**: The script will guide you through the installation process. It will download the latest version of Maven and set up the necessary environment variables.
+4. **Review the Log File**: After script execution, review the log file (`maven-log.txt`) located at `/home/ubuntu/` for any errors or status updates.
 
-5. **Verify Installation**: Once the script completes successfully, verify the installation by running:
-    ```bash
-    mvn -version
-    ```
+## Detailed Explanation
+The script performs the following steps:
 
-## Script Details
-- **Script Name**: maven-installation-script.sh
-- **Author**: qweciamoah
-- **Version**: 1.0
-- **License**: [Specify license if applicable]
+1. **Log File Initialization**:
+    - Checks if the log file (`maven-log.txt`) exists. If not, it creates one at `/home/ubuntu/`.
+
+2. **Hostname Configuration**:
+    - Sets the hostname of the system to "maven".
+
+3. **System Update and Upgrade**:
+    - Updates the package repositories and upgrades installed packages on the system.
+
+4. **Dependency Installation**:
+    - Installs default JDK and Git packages required for Maven.
+
+5. **Maven Installation**:
+    - Downloads Apache Maven (version 3.9.6) binaries, extracts them, and moves them to `/opt/maven`.
+
+6. **Environment Variable Configuration**:
+    - Adds Maven's bin directory to the system's PATH variable by appending to the `.bashrc` file of the `ubuntu` user.
+
+7. **Logging**:
+    - Logs each step and any encountered errors or status updates to the log file.
 
 ## Notes
-- This script downloads Maven from the official Apache Maven website. Ensure you have internet connectivity during the installation process.
-- The script is tested on [mention the operating systems it's tested on].
-- For troubleshooting or feedback, please [provide contact information or link to the repository].
+- Ensure internet connectivity during script execution for package downloads.
+- Review the log file for detailed information on the installation process.
+- For troubleshooting or feedback, refer to the log file or contact [provide contact information or link to the repository].
 
 ## Disclaimer
 This script is provided as-is without any warranties. Use it at your own risk. Always review the script before execution to ensure it meets your requirements and doesn't pose any security risks.
 
 Happy coding with Maven! 🚀
-Special thanks to @Chriscloudaz , @Aminu Mohammed Twumasi
